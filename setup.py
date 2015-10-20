@@ -1,10 +1,9 @@
 from setuptools import setup
 
-setup(name='YourAppName',
-      version='1.0',
-      description='OpenShift App',
-      author='Your Name',
-      author_email='example@example.com',
-      url='http://www.python.org/sigs/distutils-sig/',
-#      install_requires=['Django>=1.3'],
-     )
+setup(name='django-on-openshift',
+      version='2.0',
+      description='Django on OpenShift',
+      author='Biwin John',
+      author_email='mail@biwin.in',
+      url='https://github.com/biwin/django-on-openshift',
+      )
