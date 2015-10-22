@@ -4,6 +4,10 @@ from django.shortcuts import render_to_response
 from blog.models import Article,User
 
 
+def index(request):
+    return render(request, 'blog/index.html')
+
+
 def home(request):
     articles = Article.objects.all()
     context = {
