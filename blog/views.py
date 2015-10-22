@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render_to_response
-from blog.models import Article
+from blog.models import Article,User
 
 
 def home(request):
@@ -19,3 +19,11 @@ def about(request):
 def show_article(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     return render(request, 'blog/article.html', {'article': article})
+
+
+def contact(request):
+    user = User.objects.get(username='andriy')
+    context = {
+        'user': user,
+    }
+    return render(request, 'blog/contact.html', context)
