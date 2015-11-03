@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^demo/', 'demo.views.home', name='home'),
     url(r'^polls/', include('polls.urls', namespace="polls")),
     url(r'^blog/', include('blog.urls', namespace="blog")),
+    url(r'^jsontest/', include('jsontest.urls', namespace="jsontest")),
 ]
 
 

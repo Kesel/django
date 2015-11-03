@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     # Demo app for OpenShift Django 1.8.x
     'demo',
     'polls',
-    'blog'
+    'blog',
+    'jsontest',
 )
 
 MIDDLEWARE_CLASSES = (
