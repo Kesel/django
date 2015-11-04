@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.shortcuts import render_to_response
-from blog.models import Article,User
+from blog.models import Article, User
 
 
 def index(request):

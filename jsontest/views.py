@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from jsontest.models import Way
 
 
 def home(request):
@@ -12,3 +13,11 @@ def home(request):
             return JsonResponse(data)
     # Get goes here
     return render(request, 'base_json.html')
+
+
+def pedometer(request):
+    if request.method == 'POST':
+        way = Way.objects.get(id=1)
+        way.duration = request.POST.get('duration')
+        way.steps = request.POST.get('steps')
+        way.save()

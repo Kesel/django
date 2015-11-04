@@ -1,3 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
+class Way(models.Model):
+    steps = models.IntegerField(default=0)
+    duration = models.IntegerField(default=0)
