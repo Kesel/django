@@ -1,9 +1,10 @@
+import datetime
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from jsontest.models import Way
-import json
+from django.core.serializers.json import json, DjangoJSONEncoder
 
 
 def home(request):
@@ -27,5 +28,5 @@ def pedometer(request):
         way.duration = body['duration']
         way.steps = body['steps']
         way.save()
-        data = {"result": "ok"}
-        return JsonResponse(data)
+        nowdatetime = {"result": "ok"}
+        return JsonResponse(nowdatetime)
