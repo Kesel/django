@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from jsontest.models import Way
+import json
 
 
 def home(request):
@@ -15,9 +18,14 @@ def home(request):
     return render(request, 'base_json.html')
 
 
+@csrf_exempt
 def pedometer(request):
     if request.method == 'POST':
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
         way = Way.objects.get(id=1)
-        way.duration = request.POST.get('duration')
-        way.steps = request.POST.get('steps')
+        way.duration = body['duration']
+        way.steps = body['steps']
         way.save()
+        data = {"result": "ok"}
+        return JsonResponse(data)
