@@ -1,4 +1,6 @@
 import datetime
+
+from django.core import serializers
 from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -28,5 +30,6 @@ def pedometer(request):
         way.duration = body['duration']
         way.steps = body['steps']
         way.save()
-        nowdatetime = {"result": "ok"}
-        return JsonResponse(nowdatetime)
+        mydict = {'date': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}
+        nowdatetime = json.dumps(mydict)
+        return JsonResponse(mydict)
