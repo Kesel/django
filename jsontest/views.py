@@ -31,6 +31,6 @@ def pedometer(request):
         way.steps = body['steps']
         way.save()
         # mydict = {'date': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}
-        mydict = {'steps': 1, 'durations': 1}
+        mydict = {'steps': 1, 'duration': 1}
         nowdatetime = json.dumps(mydict)
         return JsonResponse(mydict)
