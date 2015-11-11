@@ -34,3 +34,8 @@ def pedometer(request):
         mydict = {'steps': 1, 'duration': 1}
         nowdatetime = json.dumps(mydict)
         return JsonResponse(mydict)
+
+
+def timenow(request):
+    mydict = {'date': datetime.datetime.now().strftime('%Y-%m-%dT%H:%M:%S')}
+    return JsonResponse(mydict)
